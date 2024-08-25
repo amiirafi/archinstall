@@ -15,17 +15,24 @@ loadkeys uk
 
 ### Connecting to Network
 
-`iwctl`
+`# iwctl`
+<br>
 `[iwd]# device list`
+<br>
 `[iwd]# station name connect SSID`
+<br>
 Here name is device name from the previous command
 
 ### Partition disks
 
 `# cfdisk /dev/<diskname>`
+<br>
 `# mkfs.ext4 /dev/root_partition`
+<br>
 `# mkfs.fat -F 32 /dev/efi_system_partition`
+<br>
 `# mount /dev/root_partition /mnt`
+<br>
 `# mount --mkdir /dev/efi_system_partition /mnt/boot`
 
 ### Installing the base system
@@ -40,7 +47,7 @@ pacstrap -K /mnt linux base base-devel linux-firmware git refind os-prober efibo
 genfstab -U /mnt >> /mnt/etc/fstab
 ```
 
-##Changing root into the new system
+### Changing root into the new system
 
 ```
 arch-chroot /mnt
